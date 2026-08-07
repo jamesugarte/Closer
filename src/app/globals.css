@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f7f5;
+  --foreground: #1a2421;
+  --muted: #5c6b66;
+  --card: rgba(255, 255, 255, 0.88);
+  --card-solid: #ffffff;
+  --accent: #0f766e;
+  --accent-soft: #ccfbf1;
+  --accent-deep: #115e59;
+  --highlight: #14b8a6;
+  --warm: #f59e0b;
+  --danger: #e11d48;
+  --ring: #0f766e;
+  --shell: #0b1210;
+  --success: #059669;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-deep: var(--accent-deep);
+  --color-highlight: var(--highlight);
+  --color-warm: var(--warm);
+  --color-success: var(--success);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #d8f3eb 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 20%, #e7eef8 0%, transparent 45%),
+    linear-gradient(180deg, #eef3f0 0%, #f7f5f2 40%, #ebe8e2 100%);
+  min-height: 100%;
+  height: 100dvh;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+}
+
+/* Battery / charging meter animation */
+@keyframes charge-pulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.12);
+  }
+}
+
+@keyframes date-slide {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes celebrate {
+  0% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes soft-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-charge {
+  animation: charge-pulse 2.4s ease-in-out infinite;
+}
+
+.animate-date {
+  animation: date-slide 0.45s ease-out;
+}
+
+.animate-celebrate {
+  animation: celebrate 0.55s ease-out;
+}
+
+.animate-soft-in {
+  animation: soft-in 0.4s ease-out both;
+}
+
+@keyframes health-bounce {
+  0% {
+    transform: scale(0.86) rotate(-6deg);
+    opacity: 0.7;
+  }
+  55% {
+    transform: scale(1.06) rotate(3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-health-bounce {
+  animation: health-bounce 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes marker-pop {
+  0% {
+    transform: translateX(-50%) scale(0.9);
+  }
+  40% {
+    transform: translateX(-50%) scale(1.12);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.animate-marker-pop {
+  animation: marker-pop 0.65s ease-out;
+}
+
+/* Hide scrollbars in phone shell while keeping scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
