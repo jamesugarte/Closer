@@ -2,7 +2,6 @@
 
 **Closer** is an AI-powered banking prototype for college students. Traditional apps show balances. Closer converts dollars into **time** — how far you are from what you want, and the lowest-friction ways to get there sooner.
 
-Built for an Infosys Consulting Banking & Payments interview demo.
 
 > Demo environment — simulated financial data only. No real banks, payments, auth, or paid APIs.
 
